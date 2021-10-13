@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../lib/firebase';
+import UserNameForm from '../components/UsernameForm';
 
 const SignInButton = () => {
 	const provider = new GoogleAuthProvider();
@@ -28,6 +29,7 @@ const Home: NextPage = () => {
 		<div>
 			<h1>Home</h1>
 			{user ? <SignOutButton /> : <SignInButton />}
+			<UserNameForm />
 		</div>
 	);
 };
